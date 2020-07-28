@@ -32,11 +32,3 @@ mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useCreateIndex: tru
 app.listen(process.env.PORT, () => {
     console.log(`Escuchando el puerto ${ process.env.PORT }`);
 });
-
-
-// cursonode: 2rVKudwlM2z1vRDz
-
-// MongoDB URL
-// mongodb+srv://cursonode:2rVKudwlM2z1vRDz@cluster0.67ze0.mongodb.net/test
-
-//2ZeTL3sMR7Qr7VyeTdls2iqK

@@ -14,6 +14,9 @@
 <body>
     <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
+    <!-- script para sign in, junto con el script declarado en el head planta el botón de SignIn de Google y
+        define la función para obtener datos del perfil del usuario y obtener un token id con el que atacar la 
+        ruta /google de nuestro server  -->
     <script>
         function onSignIn(googleUser) {
             var profile = googleUser.getBasicProfile();
@@ -25,6 +28,8 @@
             var id_token = googleUser.getAuthResponse().id_token;
             console.log(id_token);
 
+            // Con el id_token obtenido, atacamos a nuestro server en /google pasandole el token como parametro POST
+
             var xhr = new XMLHttpRequest();
             xhr.open('POST', '/google');
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -35,6 +40,7 @@
         }
     </script>
 
+    <!-- // Enlace para Sign OUT -->
     <a href="#" onclick="signOut();">Sign out</a>
     <script>
         function signOut() {
