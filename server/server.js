@@ -2,6 +2,7 @@ require('./config/config');
 
 const express = require('express');
 const mongoose = require('mongoose')
+const path = require('path');
 
 const app = express();
 
@@ -13,6 +14,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+// habilitar la carpeta /public
+app.use(express.static(path.resolve(__dirname, '../public')));
+
+console.log(path.resolve(__dirname, '../public'));
 // Configuración global de rutas
 app.use(require('./routes/index'));
 
@@ -33,3 +38,5 @@ app.listen(process.env.PORT, () => {
 
 // MongoDB URL
 // mongodb+srv://cursonode:2rVKudwlM2z1vRDz@cluster0.67ze0.mongodb.net/test
+
+//2ZeTL3sMR7Qr7VyeTdls2iqK
